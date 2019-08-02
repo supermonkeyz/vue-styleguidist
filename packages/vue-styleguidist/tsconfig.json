@@ -1,10 +1,11 @@
 {
 	"compilerOptions": {
 		"lib": ["dom", "esnext"],
-		"jsx": "react",
+		"jsx": "preserve",
 		"baseUrl": "./src",
+		"strict": true,
 		"allowJs": true
 	},
-	"include": ["./src"],
+	"include": ["./src/**/*.js", "./src/**/*.ts"],
 	"exclude": ["node_modules"]
 }

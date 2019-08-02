@@ -1,7 +1,7 @@
 module.exports = {
 	presets: [
 		[
-			'@babel/preset-env',
+			'@babel/env',
 			{
 				targets: {
 					chrome: 59,
@@ -11,7 +11,8 @@ module.exports = {
 				modules: false
 			}
 		],
-		'@babel/preset-react'
+		'@babel/react',
+		'@babel/typescript'
 	],
 	plugins: [
 		'@babel/plugin-syntax-dynamic-import',
@@ -20,7 +21,7 @@ module.exports = {
 	],
 	env: {
 		test: {
-			presets: ['@babel/preset-env', '@babel/preset-react'],
+			presets: ['@babel/env', '@babel/react'],
 			plugins: [
 				'@babel/plugin-syntax-dynamic-import',
 				'@babel/plugin-proposal-class-properties',
