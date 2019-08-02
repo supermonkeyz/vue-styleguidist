@@ -16,7 +16,7 @@
 		"url": "https://github.com/vue-styleguidist/vue-styleguidist/issues"
 	},
 	"license": "MIT",
-	"main": "scripts/index.js",
+	"main": "lib/scripts/index.js",
 	"bin": {
 		"vue-styleguidist": "lib/bin/styleguidist.js"
 	},
