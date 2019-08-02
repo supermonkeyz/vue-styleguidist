@@ -18,7 +18,7 @@
 	"license": "MIT",
 	"main": "scripts/index.js",
 	"bin": {
-		"vue-styleguidist": "bin/styleguidist.js"
+		"vue-styleguidist": "lib/bin/styleguidist.js"
 	},
 	"files": [
 		"bin",
