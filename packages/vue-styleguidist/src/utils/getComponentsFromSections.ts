@@ -1,16 +1,22 @@
+import { Section } from './processSections'
+
 /**
  * Get all components in all sections
  *
  * @param {array} sections
  */
 
-interface Component {
-	name: string
+export interface ComponentProps {
+	displayName: string
+	visibleName?: string
+	examples?: any[]
+	example?: any
 }
 
-interface Section {
-	components: Component[]
-	sections: Section[]
+export interface Component {
+	name: string
+	props: ComponentProps
+	module: { default?: any }
 }
 
 export default function getComponentsFromSections(sections: Section[]): Component[] {

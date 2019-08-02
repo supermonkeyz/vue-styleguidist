@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import cleanComponentName from './cleanComponentName'
+import { Component } from './getComponentsFromSections'
 
 /**
  * Expose component as global variables.
  *
  * @param {Object} component
  */
-export default function globalizeComponent(component) {
+export default function globalizeComponent(component: Component) {
 	const displayName = component.props.displayName
 	if (!component.name) {
 		return
