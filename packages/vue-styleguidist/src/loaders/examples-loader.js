@@ -1,3 +1,5 @@
+import cleanComponentName from '../utils/cleanComponentName'
+
 const path = require('path')
 const filter = require('lodash/filter')
 const map = require('lodash/map')
@@ -14,7 +16,6 @@ const expandDefaultComponent = require('react-styleguidist/lib/loaders/utils/exp
 const getImports = require('react-styleguidist/lib/loaders/utils/getImports').default
 const requireIt = require('react-styleguidist/lib/loaders/utils/requireIt')
 const getComponentVueDoc = require('./utils/getComponentVueDoc')
-const cleanComponentName = require('./utils/cleanComponentName')
 const importCodeExampleFile = require('./utils/importCodeExampleFile')
 
 // Hack the react scaffolding to be able to load client
