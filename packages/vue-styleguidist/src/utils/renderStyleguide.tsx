@@ -1,14 +1,28 @@
-import React from 'react'
+import * as React from 'react'
 import slots from 'rsg-components/slots'
 import StyleGuide from 'rsg-components/StyleGuide'
 import getRouteData from 'react-styleguidist/lib/client/utils/getRouteData'
 import getPageTitle from 'react-styleguidist/lib/client/utils/getPageTitle'
 import getComponentsFromSections from './getComponentsFromSections'
 import globalizeComponent from './globalizeComponent'
-import processSections from './processSections'
+import processSections, { Section } from './processSections'
 
 export const RenderJsxContext = React.createContext({})
 export const VueComponentMapContext = React.createContext({})
+
+export interface StyleguidistConfigObject {
+	title?: string
+	pagePerSection?: boolean
+	locallyRegisterComponents?: boolean
+}
+
+export interface StyleGuideObject {
+	sections: Section[]
+	config: StyleguidistConfigObject
+	renderRootJsx: any
+	welcomeScreen: any
+	patterns: any
+}
 
 /**
  * @param {object} styleguide An object returned by styleguide-loader
@@ -19,8 +33,8 @@ export const VueComponentMapContext = React.createContext({})
  * @return {React.ReactElement}
  */
 export default function renderStyleguide(
-	styleguide,
-	codeRevision,
+	styleguide: StyleGuideObject,
+	codeRevision: number,
 	loc = window.location,
 	doc = document,
 	hist = window.history

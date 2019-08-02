@@ -45,7 +45,7 @@
 	},
 	"overrides": [
 		{
-			"files": ["**/*.ts"],
+			"files": ["**/*.ts", "**/*.tsx"],
 			"parser": "@typescript-eslint/parser",
 			"parserOptions": {
 				"ecmaVersion": 2018,
@@ -55,13 +55,35 @@
 			"settings": {
 				"import/resolver": {
 					"node": {
-						"extensions": [".ts", ".js"]
+						"extensions": [".ts", ".d.ts", ".js"]
 					}
 				}
 			},
 			"rules": {
 				"no-unused-vars": "off",
 				"typescript/no-unused-vars": "off"
+			}
+		},
+		{
+			"files": ["**/*.d.ts"],
+			"parser": "@typescript-eslint/parser",
+			"parserOptions": {
+				"ecmaVersion": 2018,
+				"sourceType": "module"
+			},
+			"plugins": ["@typescript-eslint"],
+			"settings": {
+				"import/resolver": {
+					"node": {
+						"extensions": [".ts"]
+					}
+				}
+			},
+			"rules": {
+				"no-unused-vars": "off",
+				"typescript/no-unused-vars": "off",
+				"import/no-duplicates": "off",
+				"import/prefer-default-export": "off"
 			}
 		}
 	],
