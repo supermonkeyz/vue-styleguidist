@@ -1,12 +1,11 @@
-import * as fs from 'fs'
-import * as path from 'path'
 import { parseComponent } from 'vue-template-compiler'
+import { resolve, extname, relative } from 'path'
+import { existsSync, readFileSync } from 'fs'
+import getNameFromFilePath from 'react-styleguidist/lib/loaders/utils/getNameFromFilePath'
+import requireIt from 'react-styleguidist/lib/loaders/utils/requireIt'
+import slugger from 'react-styleguidist/lib/loaders/utils/slugger'
 
-const getNameFromFilePath = require('react-styleguidist/lib/loaders/utils/getNameFromFilePath')
-const requireIt = require('react-styleguidist/lib/loaders/utils/requireIt')
-const slugger = require('react-styleguidist/lib/loaders/utils/slugger')
-
-const vueDocLoader = path.resolve(__dirname, '../vuedoc-loader.js')
+const vueDocLoader = resolve(__dirname, '../vuedoc-loader.js')
 
 /**
  * References the filepath of the metadata file.
@@ -15,8 +14,8 @@ const vueDocLoader = path.resolve(__dirname, '../vuedoc-loader.js')
  * @returns {object}
  */
 function getComponentMetadataPath(filepath: string): string {
-	const extname = path.extname(filepath)
-	return filepath.substring(0, filepath.length - extname.length) + '.json'
+	const ext = extname(filepath)
+	return filepath.substring(0, filepath.length - ext.length) + '.json'
 }
 
 /**
@@ -26,16 +25,16 @@ function getComponentMetadataPath(filepath: string): string {
  * @param {object} config
  * @returns {object}
  */
-export default function processComponent(filepath: string, config: any) {
-	const componentPath = path.relative(config.configDir, filepath)
+export default function processComponent(filepath: string, config: any): VueStyleguidist.Component {
+	const componentPath = relative(config.configDir, filepath)
 	const componentName = getNameFromFilePath(filepath)
 	const props = requireIt(`!!${vueDocLoader}!${filepath}`)
 	const examplesFile = config.getExampleFilename(filepath)
 	const componentMetadataPath = getComponentMetadataPath(filepath)
-	const hasExamplesFile = examplesFile && fs.existsSync(examplesFile)
+	const hasExamplesFile = examplesFile && existsSync(examplesFile)
 	let hasInternalExamples = false
-	if (!hasExamplesFile && fs.existsSync(componentPath)) {
-		const customBlocks = parseComponent(fs.readFileSync(componentPath, 'utf8')).customBlocks
+	if (!hasExamplesFile && existsSync(componentPath)) {
+		const customBlocks = parseComponent(readFileSync(componentPath, 'utf8')).customBlocks
 		hasInternalExamples = !!customBlocks && customBlocks.findIndex(p => p.type === 'docs') >= 0
 	}
 	const hasExamples = hasExamplesFile || hasInternalExamples
@@ -47,6 +46,6 @@ export default function processComponent(filepath: string, config: any) {
 		module: requireIt(filepath),
 		props,
 		hasExamples,
-		metadata: fs.existsSync(componentMetadataPath) ? requireIt(componentMetadataPath) : {}
+		metadata: existsSync(componentMetadataPath) ? requireIt(componentMetadataPath) : {}
 	}
 }

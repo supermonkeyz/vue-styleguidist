@@ -6,7 +6,7 @@ const _ = require('lodash')
 const requireIt = require('react-styleguidist/lib/loaders/utils/requireIt')
 const getComponentFiles = require('react-styleguidist/lib/loaders/utils/getComponentFiles')
 const slugger = require('react-styleguidist/lib/loaders/utils/slugger')
-const getComponents = require('./getComponents')
+const getComponents = require('./getComponents').default
 
 const examplesLoader = path.resolve(__dirname, '../examples-loader.js')
 

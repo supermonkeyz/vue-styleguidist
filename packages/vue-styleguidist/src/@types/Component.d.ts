@@ -1,14 +1,19 @@
 declare namespace VueStyleguidist {
 	export interface ComponentProps {
-		displayName: string
+		displayName?: string
 		visibleName?: string
 		examples?: any[]
 		example?: any
 	}
 
 	export interface Component {
-		name: string
+		filepath?: string
+		slug?: string
+		pathLine?: JSX.Element
+		hasExamples?: boolean
+		name?: string
 		props: ComponentProps
-		module: { default?: any }
+		module: { require: string; toAST: () => any; default?: any } | any
+		metadata: any
 	}
 }

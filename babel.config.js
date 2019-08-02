@@ -7,8 +7,8 @@ module.exports = {
 					chrome: 59,
 					ie: 11
 				},
-				forceAllTransforms: true,
-				modules: false
+				forceAllTransforms: true
+				//modules: false
 			}
 		],
 		'@babel/react',

@@ -5,7 +5,9 @@
 		"baseUrl": "./src",
 		"strict": true,
 		"allowJs": true,
-		"outDir": "lib"
+		"outDir": "lib",
+		"allowSyntheticDefaultImports": true,
+		"target": "es5"
 	},
 	"include": ["./src/**/*.js", "./src/**/*.ts", "src/utils/renderStyleguide.tsx"],
 	"exclude": ["node_modules"]

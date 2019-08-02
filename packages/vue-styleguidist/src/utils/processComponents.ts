@@ -1,5 +1,3 @@
-import { Component } from './getComponentsFromSections'
-
 /**
  * Do things that are hard or impossible to do in a loader: we don’t have access to component name
  * and props in the styleguide-loader because we’re using `require` to load the component module.
@@ -7,7 +5,7 @@ import { Component } from './getComponentsFromSections'
  * @param {Array} components
  * @return {Array}
  */
-export default function processComponents(components: Component[]) {
+export default function processComponents(components: VueStyleguidist.Component[]) {
 	return components.map(component => {
 		const newComponent = {
 			...component,
