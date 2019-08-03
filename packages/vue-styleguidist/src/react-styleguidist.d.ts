@@ -1,3 +1,5 @@
+// loaders
+
 declare module 'react-styleguidist/lib/loaders/utils/getNameFromFilePath' {
 	const getNameFromFilePath: (input: string) => string
 	export = getNameFromFilePath
@@ -22,6 +24,16 @@ declare module 'react-styleguidist/lib/loaders/utils/getComponentFiles' {
 		ignore: string[]
 	) => string[]
 	export = getComponentFiles
+}
+
+declare module 'react-styleguidist/lib/loaders/utils/highlightCodeInMarkdown' {
+	const highlightCodeInMarkdown: (markdown: string) => string
+	export = highlightCodeInMarkdown
+}
+
+declare module 'react-styleguidist/lib/loaders/utils/removeDoclets' {
+	const removeDoclets: (description: string) => string
+	export = removeDoclets
 }
 
 // client
@@ -82,18 +94,4 @@ declare module 'rsg-components/slots' {
 
 	const slots: (config?: slotsStyleGuidistConfigObject) => any
 	export default slots
-}
-
-declare module 'lru-cache' {
-	class LRUCache {
-		constructor(num: number)
-		get(key: string): any
-		set(key: string, obj: any): void
-	}
-	export = LRUCache
-}
-
-declare module 'hash-sum' {
-	function makehashvsg(key: any): string
-	export = makehashvsg
 }

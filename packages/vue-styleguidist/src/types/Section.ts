@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 import { EXPAND_MODE } from './enums'
 import { Component } from './Component'
 
