@@ -1,8 +1,14 @@
 <template>
   <div>
     <template v-for="op in options">
-      <input type="radio" :value="op.value" name="hello" :key="op.value" />
-      <label :for="op.value" :key="`${op.value}-label`">{{op.text}}</label>
+      <input
+        type="radio"
+        :value="op.value"
+        name="hello"
+        :key="op.value"
+        :id="`${op.text}${op.value}`"
+      />
+      <label :for="`${op.text}${op.value}`" :key="`${op.value}-label`">{{op.text}}</label>
     </template>
   </div>
 </template>
