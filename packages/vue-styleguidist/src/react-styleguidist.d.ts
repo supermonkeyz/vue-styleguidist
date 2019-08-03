@@ -15,6 +15,15 @@ declare module 'react-styleguidist/lib/loaders/utils/slugger' {
 	export = slugger
 }
 
+declare module 'react-styleguidist/lib/loaders/utils/getComponentFiles' {
+	const getComponentFiles: (
+		components: string | string[] | undefined,
+		configDir: string,
+		ignore: string[]
+	) => string[]
+	export = getComponentFiles
+}
+
 // client
 
 declare module 'react-styleguidist/lib/client/utils/getRouteData' {
@@ -75,11 +84,16 @@ declare module 'rsg-components/slots' {
 	export default slots
 }
 
-declare module 'react-styleguidist/lib/loaders/utils/getComponentFiles' {
-	const getComponentFiles: (
-		components: string | string[] | undefined,
-		configDir: string,
-		ignore: string[]
-	) => string[]
-	export = getComponentFiles
+declare module 'lru-cache' {
+	class LRUCache {
+		constructor(num: number)
+		get(key: string): any
+		set(key: string, obj: any): void
+	}
+	export = LRUCache
+}
+
+declare module 'hash-sum' {
+	function makehashvsg(key: any): string
+	export = makehashvsg
 }
