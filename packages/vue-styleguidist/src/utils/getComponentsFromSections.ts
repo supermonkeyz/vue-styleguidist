@@ -1,15 +1,16 @@
+import { Component } from 'types/Component'
+import { ProcessedSection } from 'types/Section'
+
 /**
  * Get all components in all sections
  *
  * @param {array} sections
  */
 
-export default function getComponentsFromSections(
-	sections: VueStyleguidist.Section[]
-): VueStyleguidist.Component[] {
-	return sections.reduce((allComponent: VueStyleguidist.Component[], section: Section) => {
-		let sectionComponents: VueStyleguidist.Component[] = []
-		let subSectionComponents: VueStyleguidist.Component[] = []
+export default function getComponentsFromSections(sections: ProcessedSection[]): Component[] {
+	return sections.reduce((allComponent: Component[], section: ProcessedSection) => {
+		let sectionComponents: Component[] = []
+		let subSectionComponents: Component[] = []
 		if (section.components) {
 			sectionComponents = section.components
 		}

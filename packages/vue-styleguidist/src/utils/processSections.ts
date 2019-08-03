@@ -1,3 +1,4 @@
+import { ProcessedSection } from 'types/Section'
 import processComponents from './processComponents'
 
 /**
@@ -6,9 +7,7 @@ import processComponents from './processComponents'
  * @param {Array} sections
  * @return {Array}
  */
-export default function processSections(
-	sections: VueStyleguidist.Section[]
-): VueStyleguidist.Section[] {
+export default function processSections(sections: ProcessedSection[]): ProcessedSection[] {
 	return sections.map(section => ({
 		...section,
 		visibleName: section.name,

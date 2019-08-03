@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from 'fs'
 import getNameFromFilePath from 'react-styleguidist/lib/loaders/utils/getNameFromFilePath'
 import requireIt from 'react-styleguidist/lib/loaders/utils/requireIt'
 import slugger from 'react-styleguidist/lib/loaders/utils/slugger'
+import { Component } from 'types/Component'
 
 const vueDocLoader = resolve(__dirname, '../vuedoc-loader.js')
 
@@ -25,7 +26,7 @@ function getComponentMetadataPath(filepath: string): string {
  * @param {object} config
  * @returns {object}
  */
-export default function processComponent(filepath: string, config: any): VueStyleguidist.Component {
+export default function processComponent(filepath: string, config: any): Component {
 	const componentPath = relative(config.configDir, filepath)
 	const componentName = getNameFromFilePath(filepath)
 	const props = requireIt(`!!${vueDocLoader}!${filepath}`)

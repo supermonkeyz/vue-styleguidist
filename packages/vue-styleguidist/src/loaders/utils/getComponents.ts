@@ -1,4 +1,5 @@
-import { StyleguidistConfigObject } from 'utils/renderStyleguide'
+import { StyleGuidistConfigObject } from 'types/StyleGuide'
+import { Component } from 'types/Component'
 import processComponent from './processComponent'
 
 /**
@@ -10,7 +11,7 @@ import processComponent from './processComponent'
  */
 export default function getComponents(
 	components: string[],
-	config: StyleguidistConfigObject
-): VueStyleguidist.Component[] {
+	config: StyleGuidistConfigObject
+): Component[] {
 	return components.map(filepath => processComponent(filepath, config))
 }

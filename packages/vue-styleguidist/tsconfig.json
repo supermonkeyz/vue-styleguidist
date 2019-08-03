@@ -9,6 +9,6 @@
 		"allowSyntheticDefaultImports": true,
 		"target": "es5"
 	},
-	"include": ["./src/**/*.js", "./src/**/*.ts", "src/utils/renderStyleguide.tsx"],
+	"include": ["./src/**/*.ts", "./src/**/*.tsx"],
 	"exclude": ["node_modules"]
 }

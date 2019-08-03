@@ -6,7 +6,8 @@
 	"scripts": {
 		"precompile": "rimraf lib/",
 		"compile": "babel src/ --ignore **/__tests__/*.*,**/*.spec.* -d lib/ --extensions .js,.ts,.tsx,.jsx",
-		"compile:watch": "yarn compile --watch"
+		"compile:watch": "concurrently \"yarn compile --watch\" \"yarn typings --watch\"",
+		"typings": "tsc --noEmit"
 	},
 	"repository": {
 		"type": "git",
@@ -101,7 +102,9 @@
 		"vue-template-compiler": ">=2.0.0"
 	},
 	"devDependencies": {
+		"@types/lodash": "^4.14.136",
 		"@babel/types": "^7.5.5",
-		"strip-shebang": "^1.0.2"
+		"strip-shebang": "^1.0.2",
+		"concurrently": "^4.1.1"
 	}
 }
