@@ -1,6 +1,6 @@
 const GITHUB_HOMEPAGE = 'https://github.com/vue-styleguidist/vue-styleguidist/'
 
-module.exports = {
+export default {
 	HOMEPAGE: GITHUB_HOMEPAGE,
 	BUGS: GITHUB_HOMEPAGE + '/issues',
 	DOCS_CONFIG: GITHUB_HOMEPAGE + 'blob/master/docs/Configuration.md',
