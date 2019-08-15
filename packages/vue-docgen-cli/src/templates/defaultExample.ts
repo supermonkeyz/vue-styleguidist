@@ -13,6 +13,10 @@ function getDefaultBoolean(): boolean {
 	return true
 }
 
+function getDefaultArray(): number[] {
+	return [1, 2, 3]
+}
+
 function getDefault(prop: PropDescriptor): any {
 	if (!prop.type) {
 		return getDefaultText()
@@ -22,6 +26,8 @@ function getDefault(prop: PropDescriptor): any {
 		return getDefaultNumber()
 	} else if (prop.type.name === 'boolean') {
 		return getDefaultBoolean()
+	} else if (prop.type.name === 'array') {
+		return getDefaultArray()
 	}
 }
 
